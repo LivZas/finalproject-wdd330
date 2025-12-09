@@ -1,0 +1,45 @@
+[
+  {
+    "image": "",
+    "title": "",
+    "price": 11.99,
+    "productUrl": "",
+    "seller": "",
+    "rating": 1,
+    "condition": "New",
+    "shippingInfo": "3–5 business days"
+  },
+  {
+    "image": "",
+    "title": "",
+    "price": 8.50,
+    "productUrl": "",
+    "seller": "",
+    "rating": 2,
+    "condition": "New",
+    "shippingInfo": "5–8 business days"
+  },
+
+ {
+    "image": "",
+    "title": "",
+    "price": 11.99,
+    "productUrl": "",
+    "seller": "",
+    "rating": 1,
+    "condition": "New",
+    "shippingInfo": "3–5 business days"
+  },
+
+   {
+    "image": "",
+    "title": "",
+    "price": 11.99,
+    "productUrl": "",
+    "seller": "",
+    "rating": 1,
+    "condition": "New",
+    "shippingInfo": "3–5 business days"
+  }
+
+]

@@ -56,7 +56,7 @@ body {
 }
 
 .nav-bar a:hover {
-  color: #e45c2b;
+  color: #78aba4;
 }
 
 
@@ -93,4 +93,31 @@ body {
 .footer-center a img {
   width: 64px;
   height: 64px;
+}
+
+/* search */
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+#searchInput {
+  width: 350px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#searchButton {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #021a26;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }

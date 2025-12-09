@@ -120,3 +120,26 @@ body {
   height: 64px;
 }
 
+/* search */
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+#searchInput {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#searchButton {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #021a26;
+  color: white;
+  font-weight: bold;
+}

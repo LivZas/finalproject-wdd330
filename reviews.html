@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="styles/larger.css" media="screen and (min-width: 768px)">
   <script src="scripts/navigation.js" defer></script>
   <script src="scripts/date.js" defer></script>
-  <script src="scripts/featured-products.js" defer></script>
+  <script src="scripts/reviews.js" defer></script>
   <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
@@ -42,12 +42,40 @@
   <img src="images/dollhouse.webp" alt="Dollhouse">
 </section>
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Reviews</h1>
 
-<section class="featured-products">
-  <h2>Featured Products</h2>
-  <div id="featuredContainer" class="product-grid"></div>
-</section>
+
+  <section class="filters-section">
+      <label for="filterRating">Filter by Rating:</label>
+      <select id="filterRating">
+        <option value="all">All Ratings</option>
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐</option>
+        <option value="3">3 ⭐</option>
+        <option value="4">4 ⭐</option>
+        <option value="5">5 ⭐</option>
+      </select>
+    </section>
+
+    <section id="reviews-list" class="reviews-list"></section>
+
+    <section class="add-review-section">
+      <h2>Add a Review</h2>
+      <form id="reviewForm">
+        <input type="text" id="reviewName" placeholder="Your name" required>
+        <input type="email" id="reviewEmail" placeholder="Your email" required>
+        <textarea id="reviewBody" placeholder="Write your review..." required></textarea>
+        <label for="reviewRating">Rating:</label>
+        <select id="reviewRating" required>
+          <option value="1">1 ⭐</option>
+          <option value="2">2 ⭐</option>
+          <option value="3">3 ⭐</option>
+          <option value="4">4 ⭐</option>
+          <option value="5">5 ⭐</option>
+        </select>
+        <button type="submit">Submit Review</button>
+      </form>
+    </section>
 
   </main>
 
