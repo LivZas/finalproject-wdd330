@@ -1,5 +1,6 @@
 const summary = document.getElementById("order-summary");
 const backBtn = document.getElementById("BackToProducts");
+backBtn.classList.add("cartBtn");
 
 const order = JSON.parse(localStorage.getItem("lastOrder")) || { cart: [], shipping: {}, paymentMethod: "" };
 

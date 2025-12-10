@@ -1,5 +1,6 @@
 const cartSummary = document.getElementById("cart-summary");
 const confirmButton = document.getElementById("confirmButton");
+confirmButton.classList.add("cartBtn");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 

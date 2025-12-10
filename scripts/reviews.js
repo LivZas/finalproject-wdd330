@@ -13,7 +13,7 @@ async function loadReviews() {
   const data = await fetch("https://jsonplaceholder.typicode.com/posts").then(r => r.json());
   const sampleNames = ["Alex", "Bob", "Carla", "Danny", "Emanuel", "Fernando", "Gregorio", "Hannah", "Ivan", "Julia"];
   
-  allReviews = data.slice(0, 50).map((r, index) => {
+  allReviews = data.slice(0, 10).map((r, index) => {
     const name = sampleNames[index % sampleNames.length];
     return {
       userId: r.userId,

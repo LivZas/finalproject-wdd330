@@ -20,6 +20,21 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
+.hero {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .logo {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -72,8 +87,28 @@ body {
 .nav-bar a {
   text-decoration: none;
   color: #222;
+  position: relative;
+  display: inline-block;
 }
 
+.nav-bar a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #78aba4;
+  transition: width 0.3s ease;
+}
+
+.nav-bar a:hover {
+  color: #78aba4;
+}
+
+.nav-bar a:hover::after {
+  width: 100%;
+}
 
 
 /* footer */
@@ -120,6 +155,36 @@ body {
   height: 64px;
 }
 
+/* attributions */
+
+.attributions {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.attributions::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #d9fffa;
+  transition: width 0.3s ease;
+}
+
+.attributions:hover {
+  color: #d9fffa;
+}
+
+.attributions:hover::after {
+  width: 100%;
+}
+
 /* search */
 
 .search-section {
@@ -142,4 +207,59 @@ body {
   background-color: #021a26;
   color: white;
   font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
+
+#searchButton:hover {
+  background-color: #033247;
+  transform: scale(1.03);
+}
+
+
+/* buttons */
+
+.added-msg {
+  display: none;
+  color: #458189;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.addCartBtn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #021a26;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.addCartBtn:hover {
+  background-color: #033044;
+  transform: scale(1.05);
+}
+
+.cartBtn {
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #021a26;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.cartBtn:hover {
+  background-color: #033044;
+  transform: scale(1.05);
+}
+
+.disabledBtn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

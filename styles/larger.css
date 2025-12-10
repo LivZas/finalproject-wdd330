@@ -24,6 +24,21 @@ body {
   width: 60px;
 }
 
+.hero {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .site-name {
   text-align: center;
   font-size: 1.8rem;
@@ -52,13 +67,28 @@ body {
   text-decoration: none;
   color: #222;
   font-size: 1.1rem;
+  position: relative;
   transition: color 0.2s ease;
+}
+
+.nav-bar a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #78aba4;
+  transition: width 0.3s ease;
 }
 
 .nav-bar a:hover {
   color: #78aba4;
 }
 
+.nav-bar a:hover::after {
+  width: 100%;
+}
 
 /* footer */
 
@@ -95,6 +125,36 @@ body {
   height: 64px;
 }
 
+/* attributions */
+
+.attributions {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.attributions::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #d9fffa;
+  transition: width 0.3s ease;
+}
+
+.attributions:hover {
+  color: #d9fffa;
+}
+
+.attributions:hover::after {
+  width: 100%;
+}
+
 /* search */
 
 .search-section {
@@ -120,4 +180,56 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+#searchButton:hover {
+  background-color: #033247;
+  transform: scale(1.03);
+}
+
+/* buttons */
+
+.added-msg {
+  display: none;
+  color: #458189;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.addCartBtn {
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #021a26;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.addCartBtn:hover {
+  background-color: #04354d;
+  transform: scale(1.08);
+}
+
+.cartBtn {
+  padding: 0.9rem 1.7rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #021a26;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.cartBtn:hover {
+  background-color: #04354d;
+  transform: scale(1.08);
+}
+
+.disabledBtn {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

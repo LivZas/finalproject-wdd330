@@ -36,7 +36,7 @@ function showCart() {
         <p>Quantity: ${p.quantity}</p>
         <p>Seller: ${p.seller}</p>
         <p>⭐ ${p.rating}</p>
-        <button onclick="removeFromCart('${p.id}')">Remove</button>
+        <button class="cartBtn" onclick="removeFromCart('${p.id}')">Remove</button>
       </div>
       <hr>
     `;
@@ -44,7 +44,7 @@ function showCart() {
 
   cartList.innerHTML += `
     <h3>Total: $${total.toFixed(2)}</h3>
-    <button id="checkoutButton">Checkout</button>
+    <button id="checkoutButton" class="cartBtn">Checkout</button>
   `;
 
   document.getElementById("checkoutButton")?.addEventListener("click", ()=> {
