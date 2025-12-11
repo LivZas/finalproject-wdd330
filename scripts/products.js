@@ -48,23 +48,29 @@ function showProducts(list) {
     productsList.innerHTML += `
       <div class="product-card">
         <img src="${p.image}" alt="${p.title}">
-        <h3>${p.title}</h3>
-        <p>
-          ${p.discount > 0 ? `<span class="original-price">$${p.price}</span>` : `$${p.price}`}
-          ${p.discount > 0 ? `<span class="discount">-${p.discount}%</span>` : ""}
-        </p>
-        <p>⭐ ${p.rating}</p>
-        <p>${p.condition}</p>
-        <p>${p.shipping}</p>
-        <p>${p.stock}</p>
-        <button 
-          class="addCartBtn ${isOutOfStock ? "disabledBtn" : ""}" 
-          data-id="${p.id}"
-          ${isOutOfStock ? "disabled" : ""}
-        >
-          Add to Cart
-        </button>
-        <p class="added-msg" id="added-msg-${p.id}">Added to cart!</p>
+
+        <div class="product-info-top">
+          <h3>${p.title}</h3>
+          <p>⭐ ${p.rating}</p>
+          <p>${p.condition}</p>
+          <p>${p.shipping}</p>
+          <p>${p.stock}</p>
+        </div>
+
+        <div class="product-info-bottom">
+          <p>
+            ${p.discount > 0 ? `<span class="original-price">$${p.price}</span>` : `$${p.price}`}
+            ${p.discount > 0 ? `<span class="discount">-${p.discount}%</span>` : ""}
+          </p>
+          <button 
+            class="addCartBtn ${isOutOfStock ? "disabledBtn" : ""}" 
+            data-id="${p.id}"
+            ${isOutOfStock ? "disabled" : ""}
+          >
+            Add to Cart
+          </button>
+          <p class="added-msg" id="added-msg-${p.id}">Added to cart!</p>
+        </div>
       </div>
     `;
   });

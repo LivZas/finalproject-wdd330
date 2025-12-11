@@ -15,11 +15,12 @@ async function loadFeaturedProducts() {
           <img src="${product.image}" alt="${product.title}">
         </a>
         <h3>${product.title}</h3>
-        <p>Price: $${product.price.toFixed(2)}</p>
-        <p>Seller: ${product.seller}</p>
-        <p>Rating: ${'⭐'.repeat(product.rating)}</p>
-        <p>Condition: ${product.condition}</p>
-        <p>Shipping: ${product.shippingInfo}</p>
+
+        <p><b>Price:</b> $${product.price.toFixed(2)}</p>
+        <p><b>Seller:</b> ${product.seller}</p>
+        <p><b>Rating:</b> ${'⭐'.repeat(product.rating)}</p>
+        <p><b>Condition:</b> ${product.condition}</p>
+        <p><b>Shipping:</b> ${product.shippingInfo}</p>
       `;
 
       container.appendChild(productDiv);
