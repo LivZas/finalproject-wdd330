@@ -144,14 +144,6 @@ h2 {
   transition: width 0.3s ease;
 }
 
-.nav-bar a:hover {
-  color: #78aba4;
-}
-
-.nav-bar a:hover::after {
-  width: 100%;
-}
-
 /* footer */
 
 .footer-container {
