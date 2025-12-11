@@ -1,17 +1,16 @@
 const cartSummary = document.getElementById("cart-summary");
-const totalBox = document.getElementById("checkout-total");
 const confirmButton = document.getElementById("confirmButton");
-confirmButton.classList.add("addCartBtn");
+confirmButton.classList.add("cartBtn");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function groupCartItems(cart) {
   const grouped = {};
   cart.forEach(item => {
-    if (grouped[item.id]) {
+    if(grouped[item.id]){
       grouped[item.id].quantity += 1;
     } else {
-      grouped[item.id] = { ...item, quantity: 1 };
+      grouped[item.id] = {...item, quantity: 1};
     }
   });
   return Object.values(grouped);
@@ -19,7 +18,7 @@ function groupCartItems(cart) {
 
 function showCartSummary() {
   cartSummary.innerHTML = "";
-  if (cart.length === 0) {
+  if(cart.length === 0){
     cartSummary.innerHTML = "<p>No items in your cart.</p>";
     return;
   }
@@ -27,21 +26,30 @@ function showCartSummary() {
   const groupedItems = groupCartItems(cart);
   let total = 0;
 
+  const card = document.createElement("div");
+  card.classList.add("product-card");
+
   groupedItems.forEach(item => {
     total += item.price * item.quantity;
-
-    cartSummary.innerHTML += `
-      <div class="product-card">
-        <img src="${item.image}" alt="${item.title}">
-        <h3>${item.title}</h3>
-        <p>$${item.price}</p>
-        <p>Quantity: ${item.quantity}</p>
-        <p>Subtotal: $${(item.price * item.quantity).toFixed(2)}</p>
-      </div>
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("order-item");
+    itemDiv.style.display = "flex";
+    itemDiv.style.alignItems = "center";
+    itemDiv.style.gap = "1rem";
+    itemDiv.innerHTML = `
+      <img src="${item.image}" width="50" alt="${item.title}">
+      <span>${item.title} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}</span>
     `;
+    card.appendChild(itemDiv);
   });
 
-  totalBox.textContent = `Total: $${total.toFixed(2)}`;
+  const subtotal = document.createElement("h3");
+  subtotal.textContent = `Subtotal: $${total.toFixed(2)}`;
+  subtotal.style.textAlign = "right";
+  subtotal.style.marginTop = "1rem";
+  card.appendChild(subtotal);
+
+  cartSummary.appendChild(card);
 }
 
 showCartSummary();
@@ -53,17 +61,9 @@ confirmButton.addEventListener("click", () => {
     city: document.getElementById("shippingCity").value,
     postal: document.getElementById("shippingPostal").value
   };
-
   const paymentMethod = document.getElementById("paymentMethod").value;
-
   const groupedCart = groupCartItems(cart);
-
-  const orderData = {
-    cart: groupedCart,
-    shipping,
-    paymentMethod
-  };
-
+  const orderData = { cart: groupedCart, shipping, paymentMethod };
   localStorage.setItem("lastOrder", JSON.stringify(orderData));
   localStorage.removeItem("cart");
   window.location.href = "thankyou.html";

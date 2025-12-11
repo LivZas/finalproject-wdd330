@@ -515,6 +515,8 @@ main.container {
 /* dropdown menu */
 
 #filterRating,
+#filterCategory,
+#sortSelect,
 #reviewRating {
   background-color: #021a26;
   color: white;
@@ -527,6 +529,8 @@ main.container {
 }
 
 #filterRating:hover,
+#filterCategory:hover,
+#sortSelect:hover,
 #reviewRating:hover {
   background-color: #033247;
   transform: scale(1.03);
