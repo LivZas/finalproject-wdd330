@@ -1,16 +1,17 @@
 const cartSummary = document.getElementById("cart-summary");
+const totalBox = document.getElementById("checkout-total");
 const confirmButton = document.getElementById("confirmButton");
-confirmButton.classList.add("cartBtn");
+confirmButton.classList.add("addCartBtn");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function groupCartItems(cart) {
   const grouped = {};
   cart.forEach(item => {
-    if(grouped[item.id]){
+    if (grouped[item.id]) {
       grouped[item.id].quantity += 1;
     } else {
-      grouped[item.id] = {...item, quantity: 1};
+      grouped[item.id] = { ...item, quantity: 1 };
     }
   });
   return Object.values(grouped);
@@ -18,23 +19,29 @@ function groupCartItems(cart) {
 
 function showCartSummary() {
   cartSummary.innerHTML = "";
-  if(cart.length === 0){
+  if (cart.length === 0) {
     cartSummary.innerHTML = "<p>No items in your cart.</p>";
     return;
   }
 
   const groupedItems = groupCartItems(cart);
   let total = 0;
+
   groupedItems.forEach(item => {
     total += item.price * item.quantity;
+
     cartSummary.innerHTML += `
-      <div class="order-item">
-        <img src="${item.image}" width="50" alt="${item.title}">
-        <span>${item.title} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}</span>
+      <div class="product-card">
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+        <p>$${item.price}</p>
+        <p>Quantity: ${item.quantity}</p>
+        <p>Subtotal: $${(item.price * item.quantity).toFixed(2)}</p>
       </div>
     `;
   });
-  cartSummary.innerHTML += `<h3>Subtotal: $${total.toFixed(2)}</h3>`;
+
+  totalBox.textContent = `Total: $${total.toFixed(2)}`;
 }
 
 showCartSummary();
@@ -50,6 +57,7 @@ confirmButton.addEventListener("click", () => {
   const paymentMethod = document.getElementById("paymentMethod").value;
 
   const groupedCart = groupCartItems(cart);
+
   const orderData = {
     cart: groupedCart,
     shipping,

@@ -8,7 +8,7 @@
   <title>The House of Small Items</title>
   <meta property="og:title" content="The House of Small Items">
   <meta property="og:description" content="A website for finding small items">
-  <meta property="og:image" content="https://github.com/LivZas/finalproject-wdd330">
+  <meta property="og:image" content="https://github.com/LivZas/finalproject-wdd330/blob/main/images/dollhouse.webp">
   <meta property="og:url" content="https://github.com/LivZas/finalproject-wdd330">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,26 +45,30 @@
 
     <h1 class="page-title">Checkout</h1>
 
+      <div id="checkout-wrapper">
   <section id="cart-summary"></section>
 
-    <section id="shipping-info">
-      <h2>Shipping Information</h2>
-      <label>Name: <input type="text" id="shippingName"></label>
-      <label>Address: <input type="text" id="shippingAddress"></label>
-      <label>City: <input type="text" id="shippingCity"></label>
-      <label>Postal Code: <input type="text" id="shippingPostal"></label>
-    </section>
+    <div id="checkout-total-area">
+      <h3 id="checkout-total"></h3>
+      <button id="confirmButton">Confirm Purchase</button>
+    </div>
+    </div>
 
-    <section id="payment-info">
-      <h2>Payment Method</h2>
-      <select id="paymentMethod">
-        <option value="credit">Credit Card</option>
-        <option value="paypal">PayPal</option>
-      </select>
-    </section>
+<section id="checkout-card" class="checkout-card">
+  <h2>Shipping Information</h2>
+  <label>Name: <input type="text" id="shippingName"></label>
+  <label>Address: <input type="text" id="shippingAddress"></label>
+  <label>City: <input type="text" id="shippingCity"></label>
+  <label>Postal Code: <input type="text" id="shippingPostal"></label>
 
-    <button id="confirmButton">Confirm Purchase</button>
-  </main>
+  <h2>Payment Method</h2>
+  <select id="paymentMethod">
+    <option value="credit">Credit Card</option>
+    <option value="paypal">PayPal</option>
+  </select>
+
+  <button id="confirmButton">Confirm Purchase</button>
+</section>
 
   <footer>
     <div class="footer-container">

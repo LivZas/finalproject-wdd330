@@ -8,7 +8,7 @@
   <title>The House of Small Items</title>
   <meta property="og:title" content="The House of Small Items">
   <meta property="og:description" content="A website for finding small items">
-  <meta property="og:image" content="https://github.com/LivZas/finalproject-wdd330">
+  <meta property="og:image" content="https://github.com/LivZas/finalproject-wdd330/blob/main/images/dollhouse.webp">
   <meta property="og:url" content="https://github.com/LivZas/finalproject-wdd330">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,38 +44,42 @@
 
     <h1 class="page-title">Reviews</h1>
 
-
   <section class="filters-section">
-      <label for="filterRating">Filter by Rating:</label>
-      <select id="filterRating">
-        <option value="all">All Ratings</option>
+  <label for="filterRating">Filter by Rating:</label>
+  <select id="filterRating">
+    <option value="all">All Ratings</option>
+    <option value="1">1 ⭐</option>
+    <option value="2">2 ⭐</option>
+    <option value="3">3 ⭐</option>
+    <option value="4">4 ⭐</option>
+    <option value="5">5 ⭐</option>
+  </select>
+</section>
+
+<section id="reviews-list" class="reviews-list"></section>
+
+<section class="add-review-section">
+  <h2>Add a Review</h2>
+
+  <div class="review-form-card">
+    <form id="reviewForm">
+      <input type="text" id="reviewName" placeholder="Your name" required>
+      <input type="email" id="reviewEmail" placeholder="Your email" required>
+      <textarea id="reviewBody" placeholder="Write your review..." required></textarea>
+
+      <label for="reviewRating">Rating:</label>
+      <select id="reviewRating" required>
         <option value="1">1 ⭐</option>
         <option value="2">2 ⭐</option>
         <option value="3">3 ⭐</option>
         <option value="4">4 ⭐</option>
         <option value="5">5 ⭐</option>
       </select>
-    </section>
 
-    <section id="reviews-list" class="reviews-list"></section>
-
-    <section class="add-review-section">
-      <h2>Add a Review</h2>
-      <form id="reviewForm">
-        <input type="text" id="reviewName" placeholder="Your name" required>
-        <input type="email" id="reviewEmail" placeholder="Your email" required>
-        <textarea id="reviewBody" placeholder="Write your review..." required></textarea>
-        <label for="reviewRating">Rating:</label>
-        <select id="reviewRating" required>
-          <option value="1">1 ⭐</option>
-          <option value="2">2 ⭐</option>
-          <option value="3">3 ⭐</option>
-          <option value="4">4 ⭐</option>
-          <option value="5">5 ⭐</option>
-        </select>
-        <button type="submit">Submit Review</button>
-      </form>
-    </section>
+      <button type="submit" class="reviewSubmitBtn">Submit Review</button>
+    </form>
+  </div>
+</section>
 
   </main>
 

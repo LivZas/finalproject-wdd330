@@ -1,16 +1,13 @@
-const cartList = document.createElement("div");
-cartList.id = "cart-list";
-document.querySelector("main.container").appendChild(cartList);
-
+const cartList = document.getElementById("cart-list");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function groupCartItems() {
   const grouped = {};
   cart.forEach(p => {
-    if(grouped[p.id]){
+    if (grouped[p.id]) {
       grouped[p.id].quantity += 1;
     } else {
-      grouped[p.id] = {...p, quantity: 1};
+      grouped[p.id] = { ...p, quantity: 1 };
     }
   });
   return Object.values(grouped);
@@ -18,7 +15,7 @@ function groupCartItems() {
 
 function showCart() {
   cartList.innerHTML = "";
-  if(cart.length === 0){
+  if (cart.length === 0) {
     cartList.innerHTML = "<p>Your cart is empty.</p>";
     return;
   }
@@ -28,34 +25,43 @@ function showCart() {
 
   groupedItems.forEach(p => {
     total += p.price * p.quantity;
+
     cartList.innerHTML += `
-      <div class="cart-item">
-        <img src="${p.image}" alt="${p.title}" width="80">
+      <div class="product-card">
+        <img src="${p.image}" alt="${p.title}">
         <h3>${p.title}</h3>
-        <p>Price: $${p.price}</p>
-        <p>Quantity: ${p.quantity}</p>
-        <p>Seller: ${p.seller}</p>
+        <p>$${p.price}</p>
         <p>⭐ ${p.rating}</p>
-        <button class="cartBtn" onclick="removeFromCart('${p.id}')">Remove</button>
+        <p>${p.condition || "New"}</p>
+        <p>Seller: ${p.seller}</p>
+        <p>Quantity: ${p.quantity}</p>
+
+        <button class="addCartBtn"
+          onclick="removeFromCart('${p.id}')">
+          Remove One
+        </button>
+
+        <p class="added-msg">In Cart</p>
       </div>
-      <hr>
     `;
   });
 
   cartList.innerHTML += `
-    <h3>Total: $${total.toFixed(2)}</h3>
-    <button id="checkoutButton" class="cartBtn">Checkout</button>
+    <div class="cart-summary">
+      <h3>Total: $${total.toFixed(2)}</h3>
+      <button id="checkoutButton" class="addCartBtn">Checkout</button>
+    </div>
   `;
 
-  document.getElementById("checkoutButton")?.addEventListener("click", ()=> {
+  document.getElementById("checkoutButton")?.addEventListener("click", () => {
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.href = "checkout.html";
   });
 }
 
-function removeFromCart(id){
+function removeFromCart(id) {
   const index = cart.findIndex(p => p.id == id);
-  if(index > -1){
+  if (index > -1) {
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     showCart();
